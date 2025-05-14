@@ -52,40 +52,40 @@ const BookCatalog = () => {
                         <FaMagnifyingGlass className="text-white" />
                     </div>
 
-                    {/* Overlayed Filtered Results */}
-                    {filteredBooks.length > 0 && (
-                        <div className="absolute top-14 left-0 w-full bg-white shadow-lg rounded-lg z-10 max-h-96 flex flex-col gap-2">
-                            {filteredBooks.map((book) => (
-                                <Link to={`/books/${book.id}`}>
-                                <div
-                                    key={book.id}
-                                    className="px-4 py-2 hover:bg-gray-100 flex gap-4 items-center"
-                                >
-                                    <div className="h-14 w-10 overflow-hidden flex-shrink-0">
-                                        <img
-                                            src={book.coverImage}
-                                            alt={book.title}
-                                            className="h-full w-full object-cover rounded"
-                                        />
-                                    </div>
-                                    <div>
-                                        <p className="font-semibold text-gray-800">{book.title}</p>
-                                        <p className="text-sm text-gray-500">{book.author}</p>
-                                    </div>
-                                </div>
-                                </Link>
-                            ))}
-                        </div>
+                    {/* Conditional Search Results or Not Found Message */}
+                    {search.trim() !== "" && (
+                        filteredBooks.length > 0 ? (
+                            <div className="absolute top-14 left-0 w-full bg-white shadow-lg rounded-lg z-10 max-h-96 overflow-y-auto flex flex-col gap-2">
+                                {filteredBooks.map((book) => (
+                                    <Link key={book.id} to={`/books/${book.id}`}>
+                                        <div className="px-4 py-2 hover:bg-gray-100 flex gap-4 items-center">
+                                            <div className="h-14 w-10 overflow-hidden flex-shrink-0">
+                                                <img
+                                                    src={book.coverImage}
+                
+                                                    alt={book.title}
+                                                    className="h-full w-full object-cover rounded"
+                                                />
+                                            </div>
+                                            <div>
+                                                <p className="font-semibold text-gray-800">{book.title}</p>
+                                                <p className="text-sm text-gray-500">{book.author}</p>
+                                            </div>
+                                        </div>
+                                    </Link>
+                                ))}
+                            </div>
+                        ) : (
+                            <div className="absolute top-14 left-0 w-full bg-white shadow-lg rounded-lg z-10 p-4 text-center text-gray-500">
+                                <p>No results found.</p>
+                            </div>
+                        )
                     )}
                 </div>
 
-              
-
                 {/* Book Grid */}
                 <div>
-                <h1 className="text-2xl font-semibold mb-4 ml-3">
-                        My library
-                    </h1>
+                    <h1 className="text-2xl font-semibold mb-4 ml-3">My Library</h1>
                     {books ? (
                         <div className="grid grid-cols-4 gap-x-4 gap-y-6">
                             {books.map((book) => (
