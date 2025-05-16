@@ -4,6 +4,7 @@ import { FaBookOpen } from "react-icons/fa";
 import { useState } from "react";
 import { IoMdClose } from "react-icons/io";
 
+
 const Navbar = () => {
   const [isMenuopen, setIsMenuOpen] = useState(false);
 
