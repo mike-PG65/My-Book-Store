@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { books as allBooks } from "../assets";
 import { FaMagnifyingGlass, FaStar } from "react-icons/fa6";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 const BookCatalog = () => {
     const [books, setBooks] = useState([]);
@@ -11,13 +11,23 @@ const BookCatalog = () => {
 
     useEffect(() => {
         setLoading(true);
+       const fetchBooks = async()=>{
         try {
-            setBooks(allBooks);
+            const response = await axios.get("http://localhost:4050/api/books")
+
+            if(!response){                
+                return res.status(404).json({Message: "Books not found"})
+            }
+
+            setBooks(response.data);
+            
         } catch (error) {
             console.log(error);
         } finally {
             setLoading(false);
         }
+       }
+       fetchBooks()
     }, []);
 
     useEffect(() => {
@@ -57,7 +67,7 @@ const BookCatalog = () => {
                         filteredBooks.length > 0 ? (
                             <div className="absolute top-14 left-0 w-full bg-white shadow-lg rounded-lg z-10 max-h-96 overflow-y-auto flex flex-col gap-2">
                                 {filteredBooks.map((book) => (
-                                    <Link key={book.id} to={`/books/${book.id}`}>
+                                    <Link key={book._id} to={`/books/${book.id}`}>
                                         <div className="px-4 py-2 hover:bg-gray-100 flex gap-4 items-center">
                                             <div className="h-14 w-10 overflow-hidden flex-shrink-0">
                                                 <img
@@ -90,7 +100,7 @@ const BookCatalog = () => {
                         <div className="grid grid-cols-4 gap-x-4 gap-y-6">
                             {books.map((book) => (
                                 <div
-                                    key={book.id}
+                                    key={book._id}
                                     className="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 group w-64"
                                 >
                                     <div className="h-64 overflow-hidden w-full">
@@ -129,7 +139,7 @@ const BookCatalog = () => {
 
                                         <div className="mt-4 flex space-x-2 justify-center items-center">
                                             <Link
-                                                to={`/books/${book.id}`}
+                                                to={`/books/${book._id}`}
                                                 className="bg-indigo-600 hover:bg-indigo-700 text-white text-center py-2 px-4 rounded-lg transition-colors"
                                             >
                                                 View Details

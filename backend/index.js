@@ -1,4 +1,4 @@
-export const books = [
+const books = [
     {
         id: 1,
         title: "The Great Gatsby",
@@ -161,76 +161,78 @@ export const books = [
     }
 ];
 
-export const categories = [
-    { id: 1, name: "Classic" },
-    { id: 2, name: "Fantasy" },
-    { id: 3, name: "Dystopian" },
-    { id: 4, name: "Literary Fiction" },
-    { id: 5, name: "Science Fiction" },
-    { id: 6, name: "Mystery" },
-    { id: 7, name: "Romance" },
-    { id: 8, name: "Horror" },
-    { id: 9, name: "Biography" },
-    { id: 10, name: "History" }
-];
+// export const categories = [
+//     { id: 1, name: "Classic" },
+//     { id: 2, name: "Fantasy" },
+//     { id: 3, name: "Dystopian" },
+//     { id: 4, name: "Literary Fiction" },
+//     { id: 5, name: "Science Fiction" },
+//     { id: 6, name: "Mystery" },
+//     { id: 7, name: "Romance" },
+//     { id: 8, name: "Horror" },
+//     { id: 9, name: "Biography" },
+//     { id: 10, name: "History" }
+// ];
 
-export const storeInfo = {
-    name: "Book Haven",
-    address: "123 Reading Lane, Bookville, BV 12345",
-    phone: "(555) 123-4567",
-    email: "contact@bookhaven.com",
-    hours: "Mon-Fri: 9am-8pm, Sat-Sun: 10am-6pm",
-    about: "Book Haven has been serving the community for over 20 years, providing a wide selection of books for all ages and interests. Our knowledgeable staff is always ready to help you find your next great read!",
-    socialMedia: {
-        facebook: "https://facebook.com/bookhaven",
-        twitter: "https://twitter.com/bookhaven",
-        instagram: "https://instagram.com/bookhaven"
-    },
-    policies: {
-        returns: "30-day return policy with receipt",
-        shipping: "Free shipping on orders over $50",
-        privacy: "We never share your personal information"
-    }
-};
+// export const storeInfo = {
+//     name: "Book Haven",
+//     address: "123 Reading Lane, Bookville, BV 12345",
+//     phone: "(555) 123-4567",
+//     email: "contact@bookhaven.com",
+//     hours: "Mon-Fri: 9am-8pm, Sat-Sun: 10am-6pm",
+//     about: "Book Haven has been serving the community for over 20 years, providing a wide selection of books for all ages and interests. Our knowledgeable staff is always ready to help you find your next great read!",
+//     socialMedia: {
+//         facebook: "https://facebook.com/bookhaven",
+//         twitter: "https://twitter.com/bookhaven",
+//         instagram: "https://instagram.com/bookhaven"
+//     },
+//     policies: {
+//         returns: "30-day return policy with receipt",
+//         shipping: "Free shipping on orders over $50",
+//         privacy: "We never share your personal information"
+//     }
+// };
 
-export const featuredBooks = [1, 2, 5, 8]; // IDs of featured books
+// export const featuredBooks = [1, 2, 5, 8]; // IDs of featured books
 
-export const testimonials = [
-    {
-        id: 1,
-        name: "Sarah Johnson",
-        comment: "Best bookstore in town! The staff recommendations are always spot on.",
-        rating: 5
-    },
-    {
-        id: 2,
-        name: "Michael Chen",
-        comment: "Great selection and cozy atmosphere. My favorite weekend spot.",
-        rating: 4
-    },
-    {
-        id: 3,
-        name: "Emily Rodriguez",
-        comment: "Found rare editions here that I couldn't find anywhere else. Highly recommend!",
-        rating: 5
-    }
-];
+// export const testimonials = [
+//     {
+//         id: 1,
+//         name: "Sarah Johnson",
+//         comment: "Best bookstore in town! The staff recommendations are always spot on.",
+//         rating: 5
+//     },
+//     {
+//         id: 2,
+//         name: "Michael Chen",
+//         comment: "Great selection and cozy atmosphere. My favorite weekend spot.",
+//         rating: 4
+//     },
+//     {
+//         id: 3,
+//         name: "Emily Rodriguez",
+//         comment: "Found rare editions here that I couldn't find anywhere else. Highly recommend!",
+//         rating: 5
+//     }
+// ];
 
-export const upcomingReleases = [
-    {
-        id: 101,
-        title: "The Midnight Library",
-        author: "Matt Haig",
-        releaseDate: "2023-11-15",
-        coverImage: "https://m.media-amazon.com/images/I/81Jc4s6pRaL._AC_UF1000,1000_QL80_.jpg"
-    },
-    {
-        id: 102,
-        title: "Project Hail Mary",
-        author: "Andy Weir",
-        releaseDate: "2023-12-01",
-        coverImage: "https://m.media-amazon.com/images/I/91XSPJL3YVL._AC_UF1000,1000_QL80_.jpg"
-    }
-];
+// export const upcomingReleases = [
+//     {
+//         id: 101,
+//         title: "The Midnight Library",
+//         author: "Matt Haig",
+//         releaseDate: "2023-11-15",
+//         coverImage: "https://m.media-amazon.com/images/I/81Jc4s6pRaL._AC_UF1000,1000_QL80_.jpg"
+//     },
+//     {
+//         id: 102,
+//         title: "Project Hail Mary",
+//         author: "Andy Weir",
+//         releaseDate: "2023-12-01",
+//         coverImage: "https://m.media-amazon.com/images/I/91XSPJL3YVL._AC_UF1000,1000_QL80_.jpg"
+//     }
+// ];
 
-export const staffPicks = [3, 4, 7, 10]; // IDs of staff pick books
+// export const staffPicks = [3, 4, 7, 10]; // IDs of staff pick books
+
+module.exports= {books}

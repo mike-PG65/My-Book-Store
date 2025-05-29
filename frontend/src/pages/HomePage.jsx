@@ -1,15 +1,28 @@
 import React from "react";
 import { FaArrowRight } from "react-icons/fa6";
 import { Link } from "react-router-dom";
-import { books, featuredBooks } from "../assets";
+import axios from "axios";
+import { useState, useEffect } from "react";
 import BookCard from "../components/BookCard";
 import CallToAction from "../components/CallToAction";
 
 const HomePage = () => {
-  const featuredCollection = books.filter((book) =>
-    featuredBooks.includes(book.id)
-  );
-  console.log(featuredCollection);
+
+  const [featuredBooks, setFeaturedBooks] = useState([]);
+
+  useEffect(()=>{
+    const fetchFeaturedBooks =async ()=>{
+      try {
+        const response = await axios.get("http://localhost:4050/api/books/featured")
+      setFeaturedBooks(response.data)
+      } catch (error) {
+        console.log(error)
+        
+      }
+    }
+    fetchFeaturedBooks()
+  },[])
+  console.log(featuredBooks);
 
   return (
     <>
@@ -43,9 +56,9 @@ const HomePage = () => {
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-8 gap-y-16">
-          {featuredCollection &&
-            featuredCollection.map((book) => (
-              <BookCard key={book.id} book={book} />
+          {featuredBooks &&
+            featuredBooks.map((book) => (
+              <BookCard key={book._id} book={book} />
             ))}
         </div>
       </section>
